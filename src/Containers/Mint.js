@@ -4,6 +4,8 @@ import RandomizeImg from '../assets/RandomizeImg.png'
 import ReceiptImg from '../assets/ReceiptImg.jpg'
 import ConnectWalletModal from '../components/ConnectWalletModal'
 import Navbar from './../components/Navbar'
+import AccessDeniedModal from './../components/AccessDeniedModal'
+import MintingErrorModal from './../components/MintingErrorModal'
 
 const Mint = () => {
 	const Traits = [
@@ -41,10 +43,17 @@ const Mint = () => {
 
 	const [showConnectModal, setShowConnectModal] = useState(true)
 	const [accessGranted, setAccessGranted] = useState(false)
+	const [accessDeniedModal, setAccessDeniedModal] = useState(false)
+	const [mintingErrorModal, setMintingErrorModal] = useState(false)
 
 	useEffect(() => {
-		console.log(accessGranted)
-	}, [accessGranted])
+		if (showConnectModal || accessDeniedModal || mintingErrorModal) {
+			window.scroll(0, 0)
+			document.body.style.overflow = 'hidden'
+		} else {
+			document.body.style.overflowY = 'scroll'
+		}
+	}, [accessGranted, accessDeniedModal, showConnectModal, mintingErrorModal])
 
 	return (
 		<div className="mint">
@@ -94,6 +103,11 @@ const Mint = () => {
 
 								<div className="remaining">0 / 500 REMAINING</div>
 							</div>
+
+							<div className="buttons_row">
+								<button onClick={() => setAccessDeniedModal(true)}>Access Denied</button>
+								<button onClick={() => setMintingErrorModal(true)}>Minting Error</button>
+							</div>
 						</div>
 					</div>
 
@@ -114,6 +128,18 @@ const Mint = () => {
 			{showConnectModal && (
 				<div className="page_overlay">
 					<ConnectWalletModal setShowConnectModal={setShowConnectModal} setAccessGranted={setAccessGranted} />
+				</div>
+			)}
+
+			{accessDeniedModal && (
+				<div className="page_overlay">
+					<AccessDeniedModal setAccessDeniedModal={setAccessDeniedModal} />
+				</div>
+			)}
+
+			{mintingErrorModal && (
+				<div className="page_overlay" onClick={() => setMintingErrorModal(false)}>
+					<MintingErrorModal />
 				</div>
 			)}
 		</div>

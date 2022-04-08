@@ -1,0 +1,80 @@
+.access_denied_modal {
+	position: relative;
+	padding: 40px;
+	width: 460px;
+	background: rgba(255, 255, 255, 0.8);
+	border: 1px solid #393939;
+	box-sizing: border-box;
+	border-radius: 16px;
+
+	hr {
+		position: absolute;
+		width: 100%;
+		left: 0;
+	}
+
+	h6 {
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 20px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: #393939;
+	}
+
+	p {
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 20px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: #393939;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.buttons button,
+	button {
+		background: rgba(255, 255, 255, 0.8);
+		border: 1px solid #393939;
+		box-sizing: border-box;
+		border-radius: 90px;
+		padding: 16px 24px;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		letter-spacing: 0.11em;
+		text-transform: uppercase;
+		color: #393939;
+		display: block;
+		width: 100%;
+		margin-top: 40px;
+		display: flex;
+		gap: 20px;
+
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	.buttons {
+		display: flex;
+		gap: 15px;
+
+		button {
+			margin-top: 20px;
+		}
+	}
+
+	a {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		text-align: center;
+		letter-spacing: 0.055em;
+		color: #393939;
+		width: 100%;
+		display: block;
+		margin-top: 15px;
+		text-decoration: none;
+	}
+}

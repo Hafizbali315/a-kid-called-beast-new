@@ -1,0 +1,35 @@
+.error_modal {
+	position: relative;
+	width: 460px;
+	height: 400px;
+	box-sizing: border-box;
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.8);
+	border: 1px solid #393939;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 40px;
+	text-align: center;
+
+	h6 {
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 20px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: #393939;
+		text-align: center;
+	}
+
+	p {
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 20px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: #393939;
+		margin-top: 20px;
+	}
+}

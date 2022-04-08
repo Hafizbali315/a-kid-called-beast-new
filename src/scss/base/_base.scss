@@ -11,3 +11,13 @@ body {
 .app {
 	background: #e8e6e3;
 }
+
+.modal_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 100vh;
+	max-height: 100vh;
+	margin: 20px;
+}
