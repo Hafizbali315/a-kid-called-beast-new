@@ -144,17 +144,27 @@
 					}
 				}
 				.remaining_card_bar {
+					position: relative;
 					margin-top: 15px;
 					height: 48px;
 					border: 1px solid #393939;
 					box-sizing: border-box;
 					border-radius: 12px;
-
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
-
 					padding: 15px;
+
+					.progress_overlay {
+						position: absolute;
+						top: 0;
+						left: 0;
+						// width: 60%;
+						height: 100%;
+						border-radius: 12px;
+
+						background: rgba(255, 255, 255, 0.6);
+					}
 
 					.title,
 					.remaining {
@@ -164,6 +174,7 @@
 						letter-spacing: 0.04em;
 						color: #393939;
 						cursor: pointer;
+						z-index: 9;
 					}
 				}
 

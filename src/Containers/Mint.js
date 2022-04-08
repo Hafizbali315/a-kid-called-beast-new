@@ -13,33 +13,42 @@ const Mint = () => {
 			id: 0,
 			title: 'HONEST',
 			text: '“Being honest may not get you a lot of friends but it’ll always get you the right ones.” — John Lennon',
+			value: '100',
 		},
 		{
 			id: 1,
 			title: 'SENSITIVE',
 			text: '“To awaken human emotion is the highest level of art.” — Isadora Duncan',
+			value: '201',
 		},
 		{
 			id: 2,
 			title: 'LOUD',
 			text: '“Loud is a way of life” — Steve Adler',
+			value: '159',
 		},
 		{
 			id: 3,
 			title: 'CHILL',
 			text: '“Dont worry about a thing, every little thing is gonna be alright.” — Bob Marley',
+			value: '119',
 		},
+
 		{
 			id: 4,
 			title: 'AWARE',
 			text: 'To be aware of a single shortcoming in oneself is more useful than to be aware of a thousand in someone else. — Dalai Lama XIV',
+			value: '89',
 		},
 		{
 			id: 5,
 			title: 'AMBITIOUS',
 			text: '“A man’s worth is no greater than his ambitions.” — Marcus Aurelius',
+			value: '193',
 		},
 	]
+
+	const [progressWidth, setProgressWidth] = useState(true)
 
 	const [showConnectModal, setShowConnectModal] = useState(true)
 	const [accessGranted, setAccessGranted] = useState(false)
@@ -92,7 +101,7 @@ const Mint = () => {
 						<div className="">
 							<div className="trait_cards">
 								{Traits.map((trait) => (
-									<div className="card" key={trait.id}>
+									<div className="card" key={trait.id} onClick={() => setProgressWidth(`${(trait.value / 500) * 100}%`)}>
 										<div className="title">{trait.title}</div>
 										<div className="text">{trait.text}</div>
 									</div>
@@ -102,6 +111,8 @@ const Mint = () => {
 								<div className="title">BRAINS</div>
 
 								<div className="remaining">0 / 500 REMAINING</div>
+
+								<div className="progress_overlay" style={{ width: progressWidth }}></div>
 							</div>
 
 							<div className="buttons_row">
