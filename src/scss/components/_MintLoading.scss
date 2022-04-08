@@ -1,0 +1,28 @@
+.loading_modal {
+	position: relative;
+	width: 460px;
+	box-sizing: border-box;
+	border-radius: 16px;
+
+	h6 {
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 20px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: #393939;
+		text-align: center;
+		position: absolute;
+		top: 20px;
+		width: 100%;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 16px;
+
+		border: 1px solid #393939;
+	}
+}

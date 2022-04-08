@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Logo from '../assets/Logo.png'
 import MetamaskImg from '../assets/MetamaskImg.png'
 
@@ -5,7 +6,9 @@ const Navbar = ({ accessGranted }) => {
 	return (
 		<div className="navbar">
 			<div className="logo">
-				<img src={Logo} alt="logo" />
+				<Link to="/">
+					<img src={Logo} alt="logo" />
+				</Link>
 			</div>
 
 			<div className="wallet">

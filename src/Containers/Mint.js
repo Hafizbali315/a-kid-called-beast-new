@@ -6,6 +6,8 @@ import ConnectWalletModal from '../components/ConnectWalletModal'
 import Navbar from './../components/Navbar'
 import AccessDeniedModal from './../components/AccessDeniedModal'
 import MintingErrorModal from './../components/MintingErrorModal'
+import MintLoading from './../components/MintLoading'
+import { useNavigate } from 'react-router-dom'
 
 const Mint = () => {
 	const Traits = [
@@ -48,6 +50,8 @@ const Mint = () => {
 		},
 	]
 
+	const navigate = useNavigate()
+
 	const [progressWidth, setProgressWidth] = useState(true)
 
 	const [showConnectModal, setShowConnectModal] = useState(true)
@@ -55,14 +59,26 @@ const Mint = () => {
 	const [accessDeniedModal, setAccessDeniedModal] = useState(false)
 	const [mintingErrorModal, setMintingErrorModal] = useState(false)
 
+	const [mintLoading, setMintLoading] = useState(false)
+
 	useEffect(() => {
-		if (showConnectModal || accessDeniedModal || mintingErrorModal) {
+		if (showConnectModal || accessDeniedModal || mintingErrorModal || mintLoading) {
 			window.scroll(0, 0)
 			document.body.style.overflow = 'hidden'
 		} else {
 			document.body.style.overflowY = 'scroll'
 		}
-	}, [accessGranted, accessDeniedModal, showConnectModal, mintingErrorModal])
+	}, [accessGranted, accessDeniedModal, showConnectModal, mintingErrorModal, mintLoading])
+
+	const startMinting = () => {
+		setMintLoading(true)
+
+		setTimeout(() => {
+			setMintLoading(false)
+
+			navigate('/mint-success')
+		}, 3000)
+	}
 
 	return (
 		<div className="mint">
@@ -130,7 +146,7 @@ const Mint = () => {
 						<div className="receipt_card">
 							<img src={ReceiptImg} alt="ReceiptImg" />
 
-							<button>Mint</button>
+							<button onClick={startMinting}>Mint</button>
 						</div>
 					</div>
 				</div>
@@ -151,6 +167,12 @@ const Mint = () => {
 			{mintingErrorModal && (
 				<div className="page_overlay" onClick={() => setMintingErrorModal(false)}>
 					<MintingErrorModal />
+				</div>
+			)}
+
+			{mintLoading && (
+				<div className="page_overlay">
+					<MintLoading />
 				</div>
 			)}
 		</div>
