@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 
 import Navbar from '../components/Navbar'
 
+import ReceiptImage from '../assets/ReceiptImage.png'
+
 import EthereumImg from '../assets/EthereumImg.png'
 import RandomizeImg from '../assets/RandomizeImg.png'
 
@@ -151,6 +153,8 @@ const Mint = () => {
 						<div className="col-lg-5 col-12 order-4 order-lg-4  right recipient_img">
 							<div className="img_container">
 								<button onClick={startMinting}>Mint</button>
+
+								<img src={ReceiptImage} alt="ReceiptImage" />
 							</div>
 						</div>
 					</div>

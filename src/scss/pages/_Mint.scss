@@ -199,8 +199,11 @@
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					position: relative;
+					padding: 20px;
 
 					button {
+						position: absolute;
 						background: #ffffff;
 						border-radius: 135px;
 						width: 126px;
