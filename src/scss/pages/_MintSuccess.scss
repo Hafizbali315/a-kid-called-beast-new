@@ -6,7 +6,7 @@
 	.success {
 		display: flex;
 		align-items: center;
-		height: 100%;
+		height: calc(100vh - 100px);
 
 		.success_row {
 			width: 100%;
@@ -65,7 +65,8 @@
 			.right_col {
 				padding: 30px;
 				width: 50%;
-				height: 100%;
+				background: #000;
+				border-radius: 20px;
 
 				img {
 					width: 100%;

@@ -5,7 +5,8 @@ const MintSuccess = () => {
 	return (
 		<div className="mint_success">
 			<Navbar accessGranted />
-			<div className="success">
+
+			<div className="success container">
 				<div className="success_row">
 					<div className="left_col">
 						<h1>

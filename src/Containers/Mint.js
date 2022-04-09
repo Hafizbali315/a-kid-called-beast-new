@@ -1,13 +1,15 @@
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+
+import Navbar from '../components/Navbar'
+
 import EthereumImg from '../assets/EthereumImg.png'
 import RandomizeImg from '../assets/RandomizeImg.png'
-import ReceiptImg from '../assets/ReceiptImg.jpg'
+
 import ConnectWalletModal from '../components/ConnectWalletModal'
-import Navbar from './../components/Navbar'
-import AccessDeniedModal from './../components/AccessDeniedModal'
-import MintingErrorModal from './../components/MintingErrorModal'
-import MintLoading from './../components/MintLoading'
-import { useNavigate } from 'react-router-dom'
+import AccessDeniedModal from '../components/AccessDeniedModal'
+import MintingErrorModal from '../components/MintingErrorModal'
+import MintLoading from '../components/MintLoading'
 
 const Mint = () => {
 	const Traits = [
@@ -84,40 +86,49 @@ const Mint = () => {
 		<div className="mint">
 			<Navbar accessGranted={accessGranted} />
 
-			<div className="content_container">
-				<div className="row heading">
-					<div className="col_left">
-						<h1>
-							PLAYTIME
-							<br />
-							IS OVER
-						</h1>
-					</div>
-					<div className="col_right">
-						<p>
-							YOU WILL SOON BE A HOLDER OF A KID CALED BEAST. THERE ARE 20 BEASTHOODS, EACH 500 STRONG. SELECT 3 OPTIONS BELOW AND A RECEIPT
-							WILL BE MINTED. THIS RECEIPT WILL TRANSFORM INTO YOUR BEAST ON LAUNCH.
-						</p>
+			<div className="content">
+				<div className="container">
+					<div className="row gx-lg-5 heading_row">
+						<div className="col-lg-7 col-12 left">
+							<h1>
+								PLAYTIME
+								<br />
+								IS OVER
+							</h1>
+						</div>
 
-						<div className="price">
-							<span>Price</span> <img src={EthereumImg} alt="EthereumImg.png" /> <span>O.2 ETH</span>
+						<div className="col-lg-5 col-12 right">
+							<p>
+								YOU WILL SOON BE A HOLDER OF A KID CALED BEAST. THERE ARE 20 BEASTHOODS, EACH 500 STRONG. SELECT 3 OPTIONS BELOW AND A
+								RECEIPT WILL BE MINTED. THIS RECEIPT WILL TRANSFORM INTO YOUR BEAST ON LAUNCH.
+							</p>
+
+							<div className="price">
+								<span>Price</span> <img src={EthereumImg} alt="EthereumImg.png" /> <span>O.2 ETH</span>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div className="row traits_row">
-					<div className="col_left">
-						<ul className="nav">
-							<li>WHAT DEFINES YOU?</li>
-							<li>
-								<img src={RandomizeImg} alt="RandomizeImg" /> RANDOMIZE
-							</li>
-						</ul>
+					<div className="traits_row gx-lg-5 row-flex  row">
+						<div className="col-lg-7 col-12 order-1 order-lg-1 left">
+							<ul className="traits_nav">
+								<li>WHAT DEFINES YOU?</li>
+								<li>
+									<img src={RandomizeImg} alt="RandomizeImg" /> RANDOMIZE
+								</li>
+							</ul>
+						</div>
 
-						<div className="">
+						<div className="col-lg-5 col-12 order-3 order-lg-2 right">
+							<ul className="traits_nav">
+								<li>RECEIPT</li>
+							</ul>
+						</div>
+
+						<div className="left col-lg-7 order-2 order-lg-3 col-12 traits">
 							<div className="trait_cards">
 								{Traits.map((trait) => (
-									<div className="card" key={trait.id} onClick={() => setProgressWidth(`${(trait.value / 500) * 100}%`)}>
+									<div className="trait_card" key={trait.id} onClick={() => setProgressWidth(`${(trait.value / 500) * 100}%`)}>
 										<div className="title">{trait.title}</div>
 										<div className="text">{trait.text}</div>
 									</div>
@@ -131,23 +142,22 @@ const Mint = () => {
 								<div className="progress_overlay" style={{ width: progressWidth }}></div>
 							</div>
 
-							<div className="buttons_row">
-								<button onClick={() => setAccessDeniedModal(true)}>Access Denied</button>
-								<button onClick={() => setMintingErrorModal(true)}>Minting Error</button>
+							{/* <div className="buttons_row">
+									<button onClick={() => setAccessDeniedModal(true)}>Access Denied</button>
+									<button onClick={() => setMintingErrorModal(true)}>Minting Error</button>
+								</div> */}
+						</div>
+
+						<div className="col-lg-5 col-12 order-4 order-lg-4  right recipient_img">
+							<div className="img_container">
+								<button onClick={startMinting}>Mint</button>
 							</div>
 						</div>
 					</div>
 
-					<div className="col_right">
-						<ul className="nav">
-							<li>RECEIPT</li>
-						</ul>
-
-						<div className="receipt_card">
-							<img src={ReceiptImg} alt="ReceiptImg" />
-
-							<button onClick={startMinting}>Mint</button>
-						</div>
+					<div className="buttons_row">
+						<button onClick={() => setAccessDeniedModal(true)}>Access Denied</button>
+						<button onClick={() => setMintingErrorModal(true)}>Minting Error</button>
 					</div>
 				</div>
 			</div>
